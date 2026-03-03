@@ -1,0 +1,16 @@
+{
+  "name": "ec-or-dashboard",
+  "version": "1.0.0",
+  "description": "EC OR Sales & Return Analysis Dashboard",
+  "main": "api/sales.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "snowflake-sdk": "^1.14.0"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
