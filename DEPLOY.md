@@ -2,7 +2,7 @@
 
 ## 前置要求
 
-1. **Git**：需已安装并加入 PATH（[下载 Git for Windows](https://git-scm.com/download/win)）
+1. **GitHub Desktop**（[下载](https://desktop.github.com/)）或 **Git**（[下载 Git for Windows](https://git-scm.com/download/win)）
 2. **GitHub 账号**
 3. **Vercel 账号**（可用 GitHub 登录）
 
@@ -10,9 +10,24 @@
 
 ## 一、将代码推送到 GitHub
 
-### 1. 初始化 Git 并提交
+### 方式 A：使用 GitHub Desktop（推荐）
 
-在项目目录 `ec-or-dashboard` 下执行：
+1. **安装 GitHub Desktop** 并登录你的 GitHub 账号
+
+2. **添加本地仓库**：在 GitHub Desktop 中点击 **File** → **Add local repository**，选择 `ec-or-dashboard` 文件夹
+   - 若提示「未初始化 Git」，在弹窗中点击 **create a repository** 以在该目录初始化
+
+3. **创建 GitHub 仓库**：
+   - 在 GitHub Desktop 中点击 **Publish repository**
+   - 仓库名：`ec-or-dashboard`（或任意名称）
+   - 勾选 **Public**，取消勾选「Keep this code private」
+   - 点击 **Publish repository**
+
+4. **提交并推送**：之后每次修改代码后，在 GitHub Desktop 中点击 **Commit to main**、**Push origin** 即可
+
+### 方式 B：使用命令行
+
+1. **初始化 Git 并提交**（在项目目录 `ec-or-dashboard` 下执行）：
 
 ```bash
 cd ec-or-dashboard
@@ -22,17 +37,9 @@ git add .
 git commit -m "Initial commit: EC OR Dashboard"
 ```
 
-### 2. 在 GitHub 创建仓库
+2. **在 GitHub 创建仓库**：打开 [github.com/new](https://github.com/new)，仓库名 `ec-or-dashboard`，选择 **Public**，不勾选 README
 
-1. 打开 [github.com/new](https://github.com/new)
-2. 仓库名：`ec-or-dashboard`（或任意名称）
-3. 选择 **Public**
-4. 不要勾选 “Add a README file”
-5. 点击 **Create repository**
-
-### 3. 关联远程仓库并推送
-
-将下面命令中的 `YOUR_USERNAME` 替换为你的 GitHub 用户名：
+3. **关联远程并推送**（将 `YOUR_USERNAME` 替换为你的 GitHub 用户名）：
 
 ```bash
 git remote add origin https://github.com/YOUR_USERNAME/ec-or-dashboard.git
@@ -57,7 +64,7 @@ git push -u origin main
 - **Build Command**：留空或 `npm run build`
 - **Output Directory**：留空（由 `vercel.json` 控制）
 
-### 3. 配置环境变量（必填）
+### 3. 配置环境变量（LIVE 数据必填）
 
 在 **Environment Variables** 中添加以下变量（与 `api/sales.js` 中一致）：
 
@@ -72,6 +79,8 @@ git push -u origin main
 
 勾选 **Production / Preview / Development** 后保存。
 
+**⚠ 重要**：未配置或配置错误时，Dashboard 会自动降级为 **DEMO 模式**，显示演示数据并带警示条。配置正确后，页面会显示 **LIVE 数据**。
+
 ### 4. 部署
 
 点击 **Deploy**，等待构建完成。
@@ -82,6 +91,10 @@ git push -u origin main
 
 - 首页：`https://你的项目名.vercel.app/`
 - API：`https://你的项目名.vercel.app/api/sales?year=2026`
+
+**数据模式说明**：
+- **LIVE**：显示绿色 badge，数据来自 Snowflake 实时查询
+- **DEMO**：显示黄色 badge 和顶部警示条，数据为演示数据（无法连接 Snowflake 时自动降级）
 
 ---
 
