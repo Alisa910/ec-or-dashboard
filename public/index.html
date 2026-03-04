@@ -262,7 +262,7 @@ const brKpiRows=brRank.slice(0,3).map(([k],i)=>{
   const ytdAmt=ytdBr[k]||0,{nSz,vSz,op,mt}=_rk(i);
   return`<div style="margin-top:${mt}px;opacity:${op}">
     <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:nowrap;gap:4px">
-      <span style="color:${COLORS[k]||'var(--m)'};font-size:${nSz};font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">●&thinsp;${k}</span>
+      <span style="color:${COLORS[k]||'var(--m)'};font-size:${nSz};font-weight:700;white-space:nowrap;flex-shrink:0">●&thinsp;${k}</span>
       <b style="font-size:${vSz};white-space:nowrap;flex-shrink:0">${fmt(ytdAmt)}</b>
     </div>
     <div style="text-align:right;font-size:${i===0?'10.5px':'9.5px'};margin-top:1px;color:rgba(169,185,221,.65);white-space:nowrap">${pct(ytdBr[k]/ytdBrTotal)}</div>
@@ -272,7 +272,7 @@ const chKpiRows=chYtdRank.slice(0,3).map(([k,v],i)=>{
   const{nSz,vSz,op,mt}=_rk(i);
   return`<div style="margin-top:${mt}px;opacity:${op}">
     <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:nowrap;gap:4px">
-      <span style="color:var(--m);font-size:${nSz};font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">●&thinsp;${k}</span>
+      <span style="color:var(--m);font-size:${nSz};font-weight:700;white-space:nowrap;flex-shrink:0">●&thinsp;${k}</span>
       <b style="font-size:${vSz};white-space:nowrap;flex-shrink:0">${fmt(v)}</b>
     </div>
     <div style="text-align:right;font-size:${i===0?'10.5px':'9.5px'};margin-top:1px;color:rgba(169,185,221,.65);white-space:nowrap">${pct(v/ytdChTotal)}</div>
@@ -337,7 +337,7 @@ const chKRows=chRRRank.slice(0,3).map((x,i)=>{
   const{nSz,vSz,op,mt}=_rk(i);
   return`<div style="margin-top:${mt}px;opacity:${op}">
     <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:nowrap;gap:4px">
-      <span style="color:var(--m);font-size:${nSz};font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">●&thinsp;${x.k}</span>
+      <span style="color:var(--m);font-size:${nSz};font-weight:700;white-space:nowrap;flex-shrink:0">●&thinsp;${x.k}</span>
       <b style="font-size:${vSz};white-space:nowrap;flex-shrink:0">${pct(x.v)}</b>
     </div>
     <div style="text-align:right;font-size:${i===0?'10px':'9px'};margin-top:1px;white-space:nowrap">
@@ -351,7 +351,7 @@ const brKRows=brRRRank.slice(0,3).map((x,i)=>{
   const{nSz,vSz,op,mt}=_rk(i);
   return`<div style="margin-top:${mt}px;opacity:${op}">
     <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:nowrap;gap:4px">
-      <span style="color:${COLORS[x.k]||'var(--m)'};font-size:${nSz};font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">●&thinsp;${x.k}</span>
+      <span style="color:${COLORS[x.k]||'var(--m)'};font-size:${nSz};font-weight:700;white-space:nowrap;flex-shrink:0">●&thinsp;${x.k}</span>
       <b style="font-size:${vSz};white-space:nowrap;flex-shrink:0">${pct(x.v)}</b>
     </div>
     <div style="text-align:right;font-size:${i===0?'10px':'9px'};margin-top:1px;white-space:nowrap">
